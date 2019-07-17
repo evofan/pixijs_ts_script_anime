@@ -9,7 +9,16 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "@types/pixi.js": "^4.8.8"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evofan/pixijs_ts_script_anime.git"
+  },
+  "bugs": {
+    "url": "https://github.com/evofan/pixijs_ts_script_anime/issues"
+  },
+  "homepage": "https://github.com/evofan/pixijs_ts_script_anime#readme"
 }

@@ -46,7 +46,8 @@ const ASSET_SNOW: string = "images/snow_07.png";
 const ROTATE_LEFT: number = 1;
 const ROTATE_RIGHT: number = 2;
 const MAX_NUM: number = 10;
-const MAX_SCALE: number = 5;
+const MIN_SCALE: number = 0.5;
+const MAX_SCALE: number = 1.5;
 const MAX_ACCEL: number = 7;
 const MIN_ALPHA: number = 0.3;
 const MAX_ALPHA: number = 1;
@@ -77,7 +78,7 @@ function onAssetsLoaded(loader: object, res: any) {
 	bg.on("tap", (event: object) => {
 		console.log("onTap"); // Desktop(Touch)
 	});
-	bg.on("click", (even: object) => {
+	bg.on("click", (event: object) => {
 		console.log("click"); // Desktop
 	});
 
@@ -98,7 +99,7 @@ function onAssetsLoaded(loader: object, res: any) {
 	text.y = 20;
 
 	// Snow
-	for (let i = 0; i < MAX_NUM; i++) {
+	for (let i: number = 0; i < MAX_NUM; i++) {
 		let snow: Sprite = PIXI.Sprite.from(res.snow_data.texture);
 
 		// x position
@@ -110,8 +111,10 @@ function onAssetsLoaded(loader: object, res: any) {
 		snow.y = yNum;
 
 		// xy scale
-		let scaleNum: number = Math.floor(Math.random() * MAX_SCALE + 1);
-		// snow.scale
+		let scaleNum: number =
+			Math.floor((Math.random() * (MAX_SCALE - MIN_SCALE) + MIN_SCALE) * 10) /
+			10;
+		snow.scale.set(scaleNum, scaleNum);
 
 		// direction of rotation
 		let rotateDirecNum: number = Math.floor(Math.random() * 2 + 1);
@@ -159,21 +162,21 @@ function tick(delta: number) {
 	elapsedTime += delta;
 
 	if (elapsedTime >= fpsDelta) {
-		//enough time passed, update app
+		// enough time passed, update app
 		update(elapsedTime);
-		//reset
+		// reset
 		elapsedTime = 0;
 	}
 }
 
 /**
  * app rendering
- * @param { number } delta  time
+ * @param { number } delta time
  */
 function update(delta: number) {
-	for (let i = 0; i < MAX_NUM; i++) {
+	for (let i: number = 0; i < MAX_NUM; i++) {
 		// radian
-		let radian = (angleNums[i] * Math.PI) / 180;
+		let radian: number = (angleNums[i] * Math.PI) / 180;
 
 		snows[i].x += radiusNums[i] * Math.cos(radian);
 
@@ -193,12 +196,12 @@ function update(delta: number) {
 		// moved out of screen
 		if (HEIGHT + snows[i].height < snows[i].y) {
 			// snow.scaleX = snow.scaleY = 1;
-			let xNew = Math.floor(Math.random() * WIDTH + 1);
-			snows[i].x = xNew;
+			let xNum: number = Math.floor(Math.random() * WIDTH + 1);
+			snows[i].x = xNum;
 			snows[i].y = -snows[i].height;
 		}
 	}
 
-	//render the canvas
+	// render the canvas
 	app.render();
 }

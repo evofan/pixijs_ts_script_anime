@@ -36,7 +36,8 @@ var ASSET_SNOW = "images/snow_07.png";
 var ROTATE_LEFT = 1;
 var ROTATE_RIGHT = 2;
 var MAX_NUM = 10;
-var MAX_SCALE = 5;
+var MIN_SCALE = 0.5;
+var MAX_SCALE = 1.5;
 var MAX_ACCEL = 7;
 var MIN_ALPHA = 0.3;
 var MAX_ALPHA = 1;
@@ -65,7 +66,7 @@ function onAssetsLoaded(loader, res) {
     bg.on("tap", function (event) {
         console.log("onTap"); // Desktop(Touch)
     });
-    bg.on("click", function (even) {
+    bg.on("click", function (event) {
         console.log("click"); // Desktop
     });
     // Text
@@ -93,8 +94,9 @@ function onAssetsLoaded(loader, res) {
         var yNum = -Math.floor(Math.random() * 100 + 1);
         snow.y = yNum;
         // xy scale
-        var scaleNum = Math.floor(Math.random() * MAX_SCALE + 1);
-        // snow.scale
+        var scaleNum = Math.floor((Math.random() * (MAX_SCALE - MIN_SCALE) + MIN_SCALE) * 10) /
+            10;
+        snow.scale.set(scaleNum, scaleNum);
         // direction of rotation
         var rotateDirecNum = Math.floor(Math.random() * 2 + 1);
         rotateDirecNum === 1
@@ -131,15 +133,15 @@ function onAssetsLoaded(loader, res) {
 function tick(delta) {
     elapsedTime += delta;
     if (elapsedTime >= fpsDelta) {
-        //enough time passed, update app
+        // enough time passed, update app
         update(elapsedTime);
-        //reset
+        // reset
         elapsedTime = 0;
     }
 }
 /**
  * app rendering
- * @param { number } delta  time
+ * @param { number } delta time
  */
 function update(delta) {
     for (var i = 0; i < MAX_NUM; i++) {
@@ -160,12 +162,12 @@ function update(delta) {
         // moved out of screen
         if (HEIGHT + snows[i].height < snows[i].y) {
             // snow.scaleX = snow.scaleY = 1;
-            var xNew = Math.floor(Math.random() * WIDTH + 1);
-            snows[i].x = xNew;
+            var xNum = Math.floor(Math.random() * WIDTH + 1);
+            snows[i].x = xNum;
             snows[i].y = -snows[i].height;
         }
     }
-    //render the canvas
+    // render the canvas
     app.render();
 }
 //# sourceMappingURL=index.js.map
