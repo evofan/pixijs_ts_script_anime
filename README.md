@@ -1,12 +1,12 @@
 # Testing animation using PixiJS with TypeScript and Visual Studio Code.
 
 **DEMO**  
-[https://evofan.github.io/pixijs_script_anime/](https://evofan.github.io/pixijs_script_anime/)  
+[https://evofan.github.io/pixijs_ts_script_anime/](https://evofan.github.io/pixijs_ts_script_anime/)  
 
 reference  
 
 **Typescript definitions for Pixi.js**  
 [https://github.com/pixijs/pixi-typescript](https://github.com/pixijs/pixi-typescript)  
 
-**Visual Studio Code ‚Å TypeScript ŠÂ‹«‚ğİ’è‚µ‚ÄƒfƒoƒbƒOÀs‚·‚é**  
+**Visual Studio Code ã§ TypeScript ç’°å¢ƒã‚’è¨­å®šã—ã¦ãƒ‡ãƒãƒƒã‚°å®Ÿè¡Œã™ã‚‹**  
 [https://knooto.info/vscode-typescript/](https://knooto.info/vscode-typescript/)  
