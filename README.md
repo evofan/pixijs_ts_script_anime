@@ -10,3 +10,9 @@ reference
 
 **Visual Studio Code で TypeScript 環境を設定してデバッグ実行する**  
 [https://knooto.info/vscode-typescript/](https://knooto.info/vscode-typescript/)  
+
+**stats.js JavaScript Performance Monitor**  
+[https://github.com/mrdoob/stats.js/](https://github.com/mrdoob/stats.js/)  
+
+**@types/stats**  
+[https://www.npmjs.com/package/@types/stats](https://www.npmjs.com/package/@types/stats)  

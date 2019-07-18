@@ -1,5 +1,11 @@
 var message = "TypeScript Ver.";
 console.log(message);
+// import { Stats } from "stats.js";
+// stats
+var stats = new Stats();
+console.log(stats);
+stats.showPanel(0); // 0: fps, 1: ms; 2: mb, 3: custom
+document.body.appendChild(stats.dom);
 var WIDTH = 480;
 var HEIGHT = 320;
 var APP_FPS = 30;
@@ -144,6 +150,7 @@ function tick(delta) {
  * @param { number } delta time
  */
 function update(delta) {
+    stats.begin();
     for (var i = 0; i < MAX_NUM; i++) {
         // radian
         var radian = (angleNums[i] * Math.PI) / 180;
@@ -167,6 +174,7 @@ function update(delta) {
             snows[i].y = -snows[i].height;
         }
     }
+    stats.end();
     // render the canvas
     app.render();
 }

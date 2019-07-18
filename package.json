@@ -11,7 +11,9 @@
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
-    "@types/pixi.js": "^4.8.8"
+    "@types/pixi.js": "^4.8.8",
+    "@types/stats": "^0.16.30",
+    "stats.js": "^0.17.0"
   },
   "repository": {
     "type": "git",

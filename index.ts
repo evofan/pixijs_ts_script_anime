@@ -3,6 +3,14 @@ import { Sprite, DisplayObject } from "pixi.js";
 let message: string = "TypeScript Ver.";
 console.log(message);
 
+// import { Stats } from "stats.js";
+
+// stats
+let stats: any = new Stats();
+console.log(stats);
+stats.showPanel(0); // 0: fps, 1: ms; 2: mb, 3: custom
+document.body.appendChild(stats.dom);
+
 const WIDTH: number = 480;
 const HEIGHT: number = 320;
 const APP_FPS: number = 30;
@@ -174,6 +182,9 @@ function tick(delta: number) {
  * @param { number } delta time
  */
 function update(delta: number) {
+
+	stats.begin();
+
 	for (let i: number = 0; i < MAX_NUM; i++) {
 		// radian
 		let radian: number = (angleNums[i] * Math.PI) / 180;
@@ -201,6 +212,8 @@ function update(delta: number) {
 			snows[i].y = -snows[i].height;
 		}
 	}
+
+	stats.end();
 
 	// render the canvas
 	app.render();
